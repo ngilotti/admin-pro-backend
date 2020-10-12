@@ -10,7 +10,6 @@ const googleVerify = async(token) => {
         //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
     });
     const payload = ticket.getPayload();
-    const userid = payload['sub'];
 
     const { name, email, picture } = payload;
 

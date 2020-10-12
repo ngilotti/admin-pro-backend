@@ -10,7 +10,7 @@ const getUsuarios = async(req, res = response) => {
 
         const desde = Number(req.query.desde) || 0;
 
-        const [usuario, total] = await Promise.all([
+        const [usuarios, total] = await Promise.all([
             Usuario.find({}, 'nombre apellido dni email role google img')
             .skip(desde)
             .limit(5),
@@ -19,7 +19,7 @@ const getUsuarios = async(req, res = response) => {
 
         res.status(202).json({
             ok: true,
-            usuario: usuario,
+            usuarios: usuarios,
             total: total
         });
     } // end getUsuarios
